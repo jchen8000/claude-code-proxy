@@ -1,11 +1,32 @@
-__pycache__
-.claude
-.cursor
+# --------------------
+# Python
+# --------------------
+__pycache__/
+*.pyc
 .pytest_cache
 .ruff_cache
-.serena
-.venv
-agent_workspace
-.env
-server.log
 .coverage
+.venv
+
+# --------------------
+# Environment variables / secrets
+# --------------------
+.env
+.env.*
+!.env.example
+
+# --------------------
+# Runtime / workspace outputs
+# --------------------
+agent_workspace
+server.log
+
+# --------------------
+# Tooling / editors
+# --------------------
+.claude
+.cursor
+.serena
+.vscode/
+.idea/
+.DS_Store
