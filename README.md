@@ -120,9 +120,25 @@ MODEL="nvidia_nim/z-ai/glm4.7"                      # fallback
 
 </details>
 
+### Build Docker Image
+```bash
+docker build -t claude-code-proxy .
+```
+
+Optionally, push to dockerhub
+```bash
+docker login
+docker tag claude-code-proxy:latest your-username/claude-code-proxy:latest
+docker push your-username/claude-code-proxy:latest
+```
+
 ### Run It
 
 **Terminal 1:** Start the proxy server:
+```bash
+docker run --env-file .env -p 8082:8082 claude-code-proxy
+```
+or  
 
 ```bash
 uv run uvicorn server:app --host 0.0.0.0 --port 8082
