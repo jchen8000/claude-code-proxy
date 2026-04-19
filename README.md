@@ -538,6 +538,24 @@ class MyPlatform(MessagingPlatform):
 ```
 
 ---
+## Run On Remote Cloud VM
+
+For security purpose map port 8082 to 127.0.0.1:8082 as a local loop-back port, do not map it 
+as -p 8082:8082 which maps to 0.0.0.0:8082. Do not open port 8082 in VM's security rules.
+
+```
+sudo docker run -d --env-file .env -p 127.0.0.1:8082:8082 jchen8000/claude-code-proxy
+```
+
+Set up a SSH Tunneling using SSH or PuTTY/Windows
+```
+ssh -i private-key.ppk -L 8082:localhost:8082 username@[IP of VM]
+```
+
+Access claude-code-proxy from local machine
+```
+curl http://localhost:5888
+```
 
 ## Contributing
 
